@@ -35,7 +35,7 @@ $(function(){
                 password:$('#form_log [name=password]').val()
             },
             success:function(res){
-                console.log(res);
+                
                 if(res.status !== 0){
                     return layer.msg(res.message);
                 }
@@ -53,17 +53,16 @@ $(function(){
                 username:$('#form_reg [name=username]').val(),
                 password:$('#form_reg [name=password]').val()
             },
-            success: function(res){
-                console.log(res.token);
-                if(res.status !== 0){
-                    return layer.msg('登陆失败');
+            success: function(res) {
+                if (res.status !== 0) {
+                  return layer.msg('登录失败！')
                 }
-                layer.msg('登陆成功');
-                //本地存储
-                localStorage.setItem('token',res.token);
-                //跳转后台页面
-                location.href = '/index.html';
-            }
+                layer.msg('登录成功！')
+                // 将登录成功得到的 token 字符串，保存到 localStorage 中
+                localStorage.setItem('token', res.token)
+                // 跳转到后台主页
+                location.href = '/index.html'
+              }
         })
     })
 })
