@@ -17,6 +17,10 @@ $.ajaxPrefilter(function (options) {
   }
 
 
+  /**
+   * 把ajax请求改为同步请求
+   * options.async =  false;
+   */
   // 全局统一挂载 complete 回调函数
   options.complete = function(res) {
     // console.log('执行了 complete 回调：')

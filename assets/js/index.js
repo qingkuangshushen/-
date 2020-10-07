@@ -11,6 +11,7 @@ function getUserInfos() {
     method: 'GET',
     url: '/my/userinfo',
     success: function (res) {
+      console.log(res);
       if (res.status != 0) {
         return layui.layer.msg('获取用户信息失败!')
       }
@@ -21,7 +22,7 @@ function getUserInfos() {
 
 //渲染用户信息
 function portrait(data) {
-  console.log(data);
+  
   //渲染字体头像
   var name = data.nickname || data.username;
   $('#usernames').html(name);
@@ -30,10 +31,12 @@ function portrait(data) {
     $('.text-avatar').html(name.slice(0, 1).toUpperCase());
     $('.layui-nav-img').hide();
   } else {
-    $('.layui-nav-img').show();
+    $('.layui-nav-img').attr('src', data.user_pic).show();//attr添加属性并赋值
     $('.text-avatar').hide();
   }
 }
+
+
 
 //实现退出功能
 $('#btnLogout').on('click', function () {

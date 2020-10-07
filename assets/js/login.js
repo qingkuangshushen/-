@@ -35,11 +35,9 @@ $(function(){
                 password:$('#form_log [name=password]').val()
             },
             success:function(res){
-                
-                if(res.status !== 0){
-                    return layer.msg(res.message);
-                }
-                    return layer.msg('注册成功!'); 
+                if(res.status !== 0)return layer.msg(res.message);
+                    layer.msg('注册成功!');
+                    $('#layui-log').click();
             }
         })
     })
