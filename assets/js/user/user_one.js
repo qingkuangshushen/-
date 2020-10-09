@@ -9,10 +9,10 @@ $(function () {
     }
   })
 
-  getUserInfos();//调用获取用户信息的函数
+  getUserInfosa();//调用获取用户信息的函数
 
   //获取用户信息函数
-  function getUserInfos() {
+  function getUserInfosa() {
     $.ajax({
       method: 'GET',
       url: '/my/userinfo',
@@ -29,7 +29,7 @@ $(function () {
   //重置按钮设置
   $('#resets').on('click', function (e) {
     e.preventDefault();//阻止默认行为
-    getUserInfos()
+    getUserInfosa()
   })
 
   //更新提交用户信息
@@ -44,7 +44,8 @@ $(function () {
           return layui.layer.msg('更新用户信息失败!')
         }
         layui.layer.msg('更新用户信息成功!');
-        getUserInfos();
+        getUserInfosa();
+        window.parent.getUserInfos();
       }
     })
   })
