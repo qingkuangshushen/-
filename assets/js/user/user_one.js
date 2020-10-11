@@ -45,11 +45,7 @@ $(function () {
         }
         layui.layer.msg('更新用户信息成功!');
         getUserInfosa();
-<<<<<<< HEAD
         window.parent.getUserInfos();
-=======
-        window.parent. getUserInfos();
->>>>>>> article
       }
     })
   })
