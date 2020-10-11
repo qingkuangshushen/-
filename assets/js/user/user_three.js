@@ -9,7 +9,8 @@ $(function () {
             if(value === $('[name=oldpwd]').val()){
                 return '新旧密码不能相同'
             }
-        },newspwds:  function (value){$(function() {
+        },
+        newspwds:  function (value){$(function() {
             var form = layui.form
           
             form.verify({
@@ -57,8 +58,10 @@ $(function () {
             method: 'POST',
             url: '/my/updatepwd',
             data: $(this).serialize(),
-            success: function(ret){
-                console.log(ret);
+            success: function(res){
+                if(res.status !== 0)return layer.msg('重置密码失败！');
+                layer.msg(res.message);
+               window.parent.location.href = "/login.html";
             }
         })
     })
